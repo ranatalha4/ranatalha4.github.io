@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rana Talha, Security Analyst</title>
+<meta name="description" content="Rana Talha: security analyst working on SOC operations, SIEM engineering and detection engineering with Wazuh, SentinelOne and FortiGate.">
+<meta property="og:title" content="Rana Talha, Security Analyst">
+<meta property="og:description" content="SOC operations, SIEM engineering and detection engineering.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ranatalha4.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6F8;
+    --panel: #FFFFFF;
+    --ink: #172033;
+    --muted: #5A6374;
+    --rule: #D5DBE3;
+    --key: #0E6E6A;
+    --mark: #FFE9A8;
+    --mark-edge: #E0A100;
+    --sans: "Schibsted Grotesk", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12161D;
+      --panel: #1A202A;
+      --ink: #E6EAF0;
+      --muted: #9AA4B3;
+      --rule: #2C3440;
+      --key: #5FC7BE;
+      --mark: #4A3B0E;
+      --mark-edge: #E0A100;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--sans);
+  }
+  main { max-width: 46rem; margin: 0 auto; padding: 4.5rem 1.25rem 3rem; }
+  a { color: inherit; text-decoration-color: var(--key); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { color: var(--key); }
+  a:focus-visible { outline: 3px solid var(--mark-edge); outline-offset: 3px; border-radius: 2px; }
+
+  h1 { font-size: clamp(2.6rem, 8vw, 4.25rem); line-height: 1; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.75rem; }
+  .lede { font-size: 1.25rem; color: var(--muted); margin: 0 0 2.5rem; max-width: 36rem; }
+  h2 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1rem; }
+  section { margin-top: 4rem; }
+  p { margin: 0 0 1rem; }
+
+  /* The one memorable thing: a raw log line decoded into fields */
+  figure { margin: 0; }
+  .decode { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+  .raw {
+    font: 400 0.8125rem/1.7 var(--mono);
+    padding: 1rem 1.125rem;
+    border-bottom: 1px dashed var(--rule);
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+  .raw mark { background: transparent; color: inherit; border-radius: 3px; padding: 0 1px; animation: hl .45s ease forwards; }
+  .fields { margin: 0; padding: 0.875rem 1.125rem 1rem; display: grid; grid-template-columns: max-content 1fr; gap: 0.25rem 1.25rem; font: 400 0.875rem/1.6 var(--mono); }
+  .fields dt { color: var(--key); font-weight: 600; }
+  .fields dd { margin: 0; }
+  .fields dt, .fields dd { opacity: 0; animation: in .35s ease forwards; }
+  .verdict { font: 400 0.8125rem/1.6 var(--mono); color: var(--muted); padding: 0.625rem 1.125rem; border-top: 1px solid var(--rule); opacity: 0; animation: in .35s ease forwards; animation-delay: 1.9s; }
+  .verdict strong { color: var(--ink); font-weight: 600; }
+  .d1 { animation-delay: .3s !important; } .d2 { animation-delay: .6s !important; }
+  .d3 { animation-delay: .9s !important; } .d4 { animation-delay: 1.2s !important; }
+  .d5 { animation-delay: 1.5s !important; }
+  @keyframes hl { to { background: var(--mark); box-shadow: 0 -2px 0 var(--mark-edge) inset; color: var(--ink); } }
+  @keyframes in { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .raw mark, .fields dt, .fields dd, .verdict { animation-duration: 1ms !important; animation-delay: 0s !important; }
+  }
+
+  .focus { margin: 0; display: grid; grid-template-columns: 13rem 1fr; gap: 0.875rem 1.5rem; }
+  .focus dt { font-weight: 700; }
+  .focus dd { margin: 0; color: var(--muted); }
+
+  .project { border-left: 3px solid var(--key); padding: 0.25rem 0 0.25rem 1.25rem; }
+  .project h3 { font-size: 1.25rem; margin: 0 0 0.375rem; }
+  .project p { color: var(--muted); }
+  .stats { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 1rem 0 1.25rem; padding: 0; list-style: none; }
+  .stats b { display: block; font-size: 1.75rem; line-height: 1.1; font-weight: 800; color: var(--ink); }
+  .stats span { font-size: 0.875rem; color: var(--muted); }
+
+  .roles { list-style: none; margin: 0; padding: 0; }
+  .roles li { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .roles li:last-child { border-bottom: 1px solid var(--rule); }
+  .roles b { display: block; }
+  .roles span { color: var(--muted); }
+
+  .stack { color: var(--muted); max-width: 38rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 1.5rem; font-weight: 500; font-size: 1.125rem; }
+  footer { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; color: var(--muted); font-size: 0.875rem; }
+
+  @media (max-width: 40rem) {
+    main { padding-top: 3rem; }
+    .focus { grid-template-columns: 1fr; gap: 0.125rem; }
+    .focus dd { margin-bottom: 0.875rem; }
+    .fields { grid-template-columns: 1fr; gap: 0; }
+    .fields dd { margin-bottom: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Rana Talha</h1>
+    <p class="lede">Security analyst. I make logs useful: getting them in, parsing them correctly, and writing detections that fire on real problems instead of noise.</p>
+
+    <figure class="decode" aria-label="A raw log line about Rana Talha, decoded into structured fields">
+      <div class="raw" aria-hidden="true">1 2026-10-12T09:00:00Z uae soc <mark class="d1">rana-talha</mark> - - role="<mark class="d2">Security Analyst</mark>" focus="<mark class="d3">SIEM and detection engineering</mark>" tools="<mark class="d4">Wazuh,SentinelOne,FortiGate,OpenSearch</mark>" loc="<mark class="d5">United Arab Emirates</mark>"</div>
+      <dl class="fields">
+        <dt class="d1">name</dt><dd class="d1">Rana Talha</dd>
+        <dt class="d2">role</dt><dd class="d2">Security Analyst, regulated fintech</dd>
+        <dt class="d3">focus</dt><dd class="d3">SIEM and detection engineering, SOC operations</dd>
+        <dt class="d4">tools</dt><dd class="d4">Wazuh, SentinelOne, FortiGate, OpenSearch, n8n</dd>
+        <dt class="d5">location</dt><dd class="d5">United Arab Emirates</dd>
+      </dl>
+      <figcaption class="verdict">Rule matched: <strong>profile decoded, all fields extracted, no fallback</strong></figcaption>
+    </figure>
+  </header>
+
+  <section aria-labelledby="work">
+    <h2 id="work">What I work on</h2>
+    <dl class="focus">
+      <dt>SIEM engineering</dt>
+      <dd>Wazuh deployment, custom decoders and rules, index retention and storage tuning.</dd>
+      <dt>Detection engineering</dt>
+      <dd>Rules mapped to MITRE ATT&amp;CK for Kubernetes, databases and network policy, tuned until the noise is gone.</dd>
+      <dt>Endpoint and network</dt>
+      <dd>SentinelOne alert triage and FortiGate custom IOC threat feeds.</dd>
+      <dt>SOC automation</dt>
+      <dd>n8n workflows for shift handover and monthly client threat reporting.</dd>
+      <dt>Compliance remediation</dt>
+      <dd>Closing audit findings across MFA, backup and DR, VAPT and asset inventory in a central-bank regulated environment.</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="projects">
+    <h2 id="projects">Selected work</h2>
+    <article class="project">
+      <h3><a href="https://github.com/ranatalha4/wazuh-talos-linux">wazuh-talos-linux</a></h3>
+      <p>Wazuh decoders, detection rules and field notes for monitoring Talos Linux and Kubernetes nodes over syslog, where no agent can be installed. Built against live production traffic, including the parsing traps that make decoders fail without an error.</p>
+      <ul class="stats">
+        <li><b>30</b><span>decoders</span></li>
+        <li><b>32</b><span>rules</span></li>
+        <li><b>11</b><span>MITRE techniques</span></li>
+        <li><b>13</b><span>documented gotchas</span></li>
+      </ul>
+      <p><a href="https://github.com/ranatalha4/wazuh-talos-linux">Read the code and notes on GitHub</a></p>
+    </article>
+  </section>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">Experience</h2>
+    <ul class="roles">
+      <li><b>Security Analyst, UAE fintech</b><span>SOC operations, SIEM and EDR platform management, compliance remediation and infrastructure security.</span></li>
+      <li><b>Security consultant</b><span>Detection engineering and security engagements for clients through a small consulting team.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Get in touch</h2>
+    <p class="stack">The fastest way to reach me is LinkedIn.</p>
+    <p class="links">
+      <a href="https://www.linkedin.com/in/rana-talha-91164a221">LinkedIn</a>
+      <a href="https://github.com/ranatalha4">GitHub</a>
+    </p>
+  </section>
+</main>
+<footer>Plain HTML and CSS, hosted on GitHub Pages.</footer>
+</body>
+</html>
