@@ -199,7 +199,7 @@
     </article>
 
     <article class="project" style="margin-top:2.25rem">
-      <h3>ThreatScribe</h3>
+      <h3><a href="https://github.com/ranatalha4/ThreatScribe">ThreatScribe</a></h3>
       <p>An n8n workflow that turns a security news link posted in Slack into a client-ready threat advisory. It scrapes the article past redirects and bot walls, drafts a structured CTI analysis with an LLM, extracts severity, CVSS and CVEs, and posts a styled HTML report back into the thread. Analysts review and send instead of writing from scratch.</p>
       <ul class="stats">
         <li><b>1</b><span>link in</span></li>
@@ -207,7 +207,19 @@
         <li><b>8</b><span>report sections</span></li>
         <li><b>4</b><span>page HTML advisory</span></li>
       </ul>
-      <p>n8n, Slack, Groq (gpt-oss-20b), JavaScript. Private repository, walkthrough on request.</p>
+      <p><a href="https://github.com/ranatalha4/ThreatScribe">See the workflow on GitHub</a></p>
+    </article>
+
+    <article class="project" style="margin-top:2.25rem">
+      <h3><a href="https://github.com/ranatalha4/ShiftRelay">ShiftRelay</a></h3>
+      <p>An n8n workflow that automates SOC shift handovers. One Slack command reads the client's alert log from a SharePoint workbook through Microsoft Graph, dedupes and counts alerts by source, severity and status, then posts the full handover to the SOC's Slack channel and a client-facing summary to Microsoft Teams. The incoming shift is tagged automatically.</p>
+      <ul class="stats">
+        <li><b>1</b><span>Slack command</span></li>
+        <li><b>12</b><span>workflow nodes</span></li>
+        <li><b>2</b><span>channels: Slack and Teams</span></li>
+        <li><b>0</b><span>secrets in the workflow</span></li>
+      </ul>
+      <p><a href="https://github.com/ranatalha4/ShiftRelay">See the workflow on GitHub</a></p>
     </article>
 
     <h3 style="font-size:1.125rem;margin:2.25rem 0 0.75rem">Internal tools I built</h3>
