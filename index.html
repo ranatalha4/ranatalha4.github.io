@@ -9,6 +9,8 @@
 <meta property="og:description" content="Threat intelligence, threat hunting, incident response and SOC operations.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ranatalha4.github.io/">
+<meta property="og:image" content="https://ranatalha4.github.io/img/rana-talha-800.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -50,6 +52,11 @@
   a:hover { color: var(--key); }
   a:focus-visible { outline: 3px solid var(--mark-edge); outline-offset: 3px; border-radius: 2px; }
 
+  .intro { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.25rem; }
+  .portrait { width: 7.5rem; height: 7.5rem; border-radius: 14px; object-fit: cover; flex: none; border: 1px solid var(--rule); }
+  .intro h1 { margin: 0; }
+  .title { margin: 0.375rem 0 0; font-weight: 500; color: var(--key); }
+  @media (max-width: 40rem) { .intro { flex-direction: column; align-items: flex-start; gap: 1rem; } .portrait { width: 6rem; height: 6rem; } }
   h1 { font-size: clamp(2.6rem, 8vw, 4.25rem); line-height: 1; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 0.75rem; }
   .lede { font-size: 1.25rem; color: var(--muted); margin: 0 0 2.5rem; max-width: 36rem; }
   h2 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 1rem; }
@@ -139,8 +146,14 @@
 <body>
 <main>
   <header>
-    <h1>Rana Talha</h1>
-    <p class="lede">Senior security engineer with 5+ years across threat intelligence, threat hunting, incident response and SOC operations. I turn intel into detections that fire on real problems instead of noise.</p>
+    <div class="intro">
+      <img class="portrait" src="img/rana-talha-400.jpg" srcset="img/rana-talha-400.jpg 1x, img/rana-talha-800.jpg 2x" width="400" height="400" alt="Portrait of Rana Talha">
+      <div>
+        <h1>Rana Talha</h1>
+        <p class="title">Senior Security Engineer, Dubai</p>
+      </div>
+    </div>
+    <p class="lede">5+ years across threat intelligence, threat hunting, incident response and SOC operations. I turn intel into detections that fire on real problems instead of noise.</p>
 
     <figure class="decode" aria-label="A raw log line about Rana Talha, decoded into structured fields">
       <div class="raw" aria-hidden="true">1 2026-10-12T09:00:00Z dxb soc <mark class="d1">rana-talha</mark> - - role="<mark class="d2">Senior Security Engineer</mark>" focus="<mark class="d3">CTI,threat hunting,IR,SOC</mark>" tools="<mark class="d4">Sentinel,Wazuh,MISP,OpenCTI,SentinelOne</mark>" loc="<mark class="d5">Dubai, UAE</mark>"</div>
